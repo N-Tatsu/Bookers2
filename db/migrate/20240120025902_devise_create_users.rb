@@ -34,6 +34,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       
       ##なまえ保存
       t.string :name
+      
+      ##自己紹介
+      t.string :introduction
 
 
       t.timestamps null: false
