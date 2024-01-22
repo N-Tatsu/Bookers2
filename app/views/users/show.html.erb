@@ -5,6 +5,10 @@
   <p><%= @user.introduction %></p>
 </div>
 
+<li>
+<%= link_to "Edit", edit_book_path %>
+</li>
+
 <h1>New Book</h1>
 <%= form_with model: @book do |f| %>
 <p>Title</p>

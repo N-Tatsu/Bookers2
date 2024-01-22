@@ -5,23 +5,25 @@ class BooksController < ApplicationController
     @book.save
     redirect_to book_path(@book.id)
   end
-  
+
   def index
-    
-    
+   @user = User.find(params[:id])
+   @books = @user.books
+   @book = Book.new
   end
 
   def show
+
   end
-  
-  def edit 
+
+  def edit
   end
-  
+
   private
 
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
+
 end
 
