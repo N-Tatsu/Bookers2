@@ -6,7 +6,7 @@
 </div>
 
 <li>
-<%= link_to "Edit", edit_book_path %>
+<%= link_to "Edit", edit_user_path(@user) %>
 </li>
 
 <h1>New book</h1>
@@ -27,14 +27,17 @@
       <th></th>
       <th>Title</th>
       <th>Opinion</th>
-      </tr>
+    </tr>
   </thead>
   
    <% @books.each do |book| %>
   <tbody>
     <tr>
-       <td><%= image_tag @user.get_profile_image(100,100) %></td>
-       <td><%= link_to book.title, user_path %></td>
+       <td><%= link_to user_path(book.user.id) do %>
+           <%= image_tag @user.get_profile_image(100,100) %>
+           <% end %>
+       </td>
+       <td><%= link_to book.title, book_path(book.user.id) %></td>
        <td><%= book.body %></td>
     </tr>
   </tbody>
