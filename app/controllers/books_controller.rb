@@ -9,7 +9,8 @@ class BooksController < ApplicationController
   def index
    @user =  current_user
    @books = Book.all
-   @book = Book.new
+   @new_book = Book.new
+
   end
 
   def show
@@ -20,6 +21,16 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = book.find(params[:id])
+  end
+  
+  def update
+  end
+  
+  def destroy
+    post_image = Book.find(params[:id])
+    post_image.destroy
+    redirect_to books_path
   end
 
   private
