@@ -1,30 +1,34 @@
 class UsersController < ApplicationController
   def index
-    @current_user =  current_user
+    @user =  current_user
     @new_book = Book.new
-  end
-
-  def create
-    @book = Book.new(book_params)
-    @book.user_id = current_user.id
-    @book.save
-    redirect_to book_path(@book.id)
-    
+    @users = User.all
   end
 
   def show
-    @current_user = current_user
     @user = User.find(params[:id])
     @books = @user.books
     @newbook = Book.new
   end
 
   def edit
+    @user = User.find(params[:id]) 
   end
+  
+  def update
+    @user = User.find(params[:id])
+    @user.save
+    redirect_to user_path(@user)
+  end
+  
+
 
 
   private
   # ストロングパラメータ
+  def user_params
+    params.require(:user).permit(:name, :profile_image)
+  end
   def book_params
     params.require(:book).permit(:title, :body)
   end
