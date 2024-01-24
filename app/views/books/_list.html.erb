@@ -1,16 +1,26 @@
 
-<h1>User info</h1>
+<h2>User info</h2>
+<table class="table table-striped">
+  <tbody>
+    <tr><%= image_tag user.get_profile_image(100,100) %></tr>
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th>
+    <tr>
+      <th>introduction</th>
+      <th><%= user.introduction %></th>
+    </tr>
+  </tbody>
+</table>
+
+
 <div>
-  <p><%= image_tag user.get_profile_image(100,100) %></p>
-  <p><%= user.name %></p>
-  <p><%= user.introduction %></p>
-</div>
+  <%= link_to edit_user_path(current_user),class: "text-secondary" do %>
+    <i class="fa-solid fa-user-gear"></i>
+  <% end %>
+ </div>
 
-<li>
-<%= link_to "Edit", edit_user_path(user) %>
-</li>
-
-<h1>New book</h1>
+<h2>New book</h2>
 <%= form_with model: new_book do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title %>
