@@ -35,7 +35,7 @@
                </li>
                <li style = "padding :8px">
                  <%= link_to users_path, class: "nav-item text-light" do %>
-                   <i class="fas fa-user">Users</i>
+                   <i class="fa-solid fa-users">Users</i>
                  <% end %>
                </li>
                <li style="padding :8px;">
@@ -45,7 +45,7 @@
                </li>
                <li style="padding :8px;">
                  <%= link_to destroy_user_session_path, method: :delete, class: "nav-item text-light" do %>
-                   <i class="fa-solid fa-right-to-bracket">Log out</i>
+                   <i class="fa-solid fa-right-from-bracket">Log out</i>
                  <% end %>
                </li>
 
@@ -66,8 +66,8 @@
                </a>
               </li>
               <li>
-               <a class = "nav-link text-light" href="/home/sign_in">
-                 <i class="fa-solid fa-right-to-bracket"></i>Sign in
+               <a class = "nav-link text-light" href="/users/sign_in">
+                 <i class="fa-solid fa-right-to-bracket"></i>Log in
                </a>
               </li>
       　    　 <% end %>
