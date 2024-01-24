@@ -1,27 +1,33 @@
-<%= render 'list', user: @user, new_book: @new_book %>
+<div class="container">
+  <div class="row">
+   <div class="col-lg-3" style="background-color: orange;">
+     <%= render 'list', user: @user, new_book: @new_book %>
+   </div>
+   
+   <div class="col-lg-8 offset-1">  <!-- この行を追加 -->
+     <h1>Books</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
 
-<h1>Books</h1>
-
-<table>
-
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-  </thead>
-
-   <% @books.each do |book| %>
-  <tbody>
-    <tr>
-       <td><%= link_to user_path(book.user.id) do %>
-           <%= image_tag @user.get_profile_image(100,100) %>
-           <% end %>
-       </td>
-       <td><%= link_to book.title, book_path(book.id) %></td>
-       <td><%= book.body %></td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
+         <% @books.each do |book| %>
+        <tbody>
+          <tr>
+             <td><%= link_to user_path(book.user.id) do %>
+                 <%= image_tag @user.get_profile_image(100,100) %>
+                 <% end %>
+             </td>
+             <td><%= link_to book.title, book_path(book.id) %></td>
+             <td><%= book.body %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>  
+  </div>  
+</div>  
