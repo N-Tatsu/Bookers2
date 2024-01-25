@@ -1,19 +1,19 @@
-<% if @new_book.errors.any? %>
-  <%= @new_book.errors.count %>error prohibited this obj from being saved:
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>error prohibited this obj from being saved:
   <ul>
-    <% @new_book.errors.full_messages.each do |message| %>
+    <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
 <% end %>
 
-<div class="container">
+<div class="container px-5 px-sm-0">
   <div class="row">
-   <div class="col-lg-3">
-     <%= render 'list', user: @user, new_book: @new_book %>
+   <div class="col-md-3">
+     <%= render 'list', user: @user, new_book: @book %>
    </div>
    
-   <div class="col-lg-8 offset-1">
+   <div class="col-md-8 offset-md-1">
      <h2>Books</h2>
       <table class="table table-striped">
         <thead>

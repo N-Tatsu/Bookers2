@@ -13,5 +13,5 @@ def get_profile_image(width, height)
 end
   
   validates :title, presence: true
-  validates :body, presence: true
+  validates :body, presence: true, length: { maximum: 200 }
 end
